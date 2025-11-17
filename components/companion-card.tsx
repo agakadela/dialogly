@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 
 interface CompanionCardProps {
   id: string;
-  name: string;
+  title: string;
   subject: string;
   topic: string;
   duration: number;
@@ -13,7 +13,7 @@ interface CompanionCardProps {
 
 export default function CompanionCard({
   id,
-  name,
+  title,
   subject,
   topic,
   duration,
@@ -32,14 +32,14 @@ export default function CompanionCard({
           />
         </Button>
       </div>
-      <h2 className='text-2xl bold'>{name}</h2>
+      <h2 className='text-2xl bold'>{title}</h2>
       <p className='text-sm'>{topic}</p>
       <div className='flex items-center gap-2'>
         <Image src='/icons/clock.svg' alt='clock' width={13.5} height={13.5} />
         <p className='text-sm'>{duration} minutes</p>
       </div>
       <Link href={`/companions/${id}`}>
-        <Button className='btn-primary w-full justify-center'>
+        <Button className='btn-primary w-full justify-center cursor-pointer'>
           View Companion
         </Button>
       </Link>

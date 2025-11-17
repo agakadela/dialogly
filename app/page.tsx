@@ -5,7 +5,7 @@ import CompanionsList from '@/components/companions-list';
 const companions = [
   {
     id: '1',
-    name: 'John Doe',
+    title: 'Neura the Brainy Explorer',
     subject: 'Math',
     topic: 'Algebra',
     duration: 30,
@@ -13,7 +13,7 @@ const companions = [
   },
   {
     id: '2',
-    name: 'Jane Doe',
+    title: 'Countsy the Number Wizard',
     subject: 'Science',
     topic: 'Physics',
     duration: 30,
@@ -21,7 +21,7 @@ const companions = [
   },
   {
     id: '3',
-    name: 'Jim Doe',
+    title: 'Verba the Vocabulary Builder',
     subject: 'History',
     topic: 'World War II',
     duration: 30,
@@ -29,6 +29,48 @@ const companions = [
   },
 ];
 
+const recentCompanions = [
+  {
+    id: '1',
+    title: 'Neura the Brainy Explorer',
+    subject: 'Math',
+    topic: 'Algebra',
+    duration: 30,
+    color: '#FFDA6E',
+  },
+  {
+    id: '2',
+    title: 'Countsy the Number Wizard',
+    subject: 'Science',
+    topic: 'Physics',
+    duration: 30,
+    color: '#BDE7FF',
+  },
+  {
+    id: '3',
+    title: 'Verba the Vocabulary Builder',
+    subject: 'History',
+    topic: 'World War II',
+    duration: 30,
+    color: '#FFECC8',
+  },
+  {
+    id: '4',
+    title: 'Codey the Logic Hacker',
+    subject: 'Coding',
+    topic: 'Intro to If-Else Statements',
+    duration: 30,
+    color: '#FFC8E4',
+  },
+  {
+    id: '5',
+    title: 'Memo the Memory Keeper',
+    subject: 'History',
+    topic: 'World War II',
+    duration: 30,
+    color: '#C8FFDF',
+  },
+];
 const Page = () => {
   return (
     <main>
@@ -38,7 +80,7 @@ const Page = () => {
           <CompanionCard
             key={companion.id}
             id={companion.id}
-            name={companion.name}
+            title={companion.title}
             subject={companion.subject}
             topic={companion.topic}
             duration={companion.duration}
@@ -47,7 +89,11 @@ const Page = () => {
         ))}
       </section>
       <section className='home-section'>
-        <CompanionsList />
+        <CompanionsList
+          title='Recently Completed Sessions'
+          companions={recentCompanions as Companion[]}
+          className='w-2/3 max-lg:w-full'
+        />
         <CTA />
       </section>
     </main>
