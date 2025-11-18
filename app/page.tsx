@@ -1,6 +1,7 @@
 import CompanionCard from '@/components/companion-card';
 import CTA from '@/components/cta';
 import CompanionsList from '@/components/companions-list';
+import { getSubjectColor } from '@/lib/utils';
 
 const companions = [
   {
@@ -9,7 +10,6 @@ const companions = [
     subject: 'Math',
     topic: 'Algebra',
     duration: 30,
-    color: '#E5D0FF',
   },
   {
     id: '2',
@@ -17,7 +17,6 @@ const companions = [
     subject: 'Science',
     topic: 'Physics',
     duration: 30,
-    color: '#FFDA6E',
   },
   {
     id: '3',
@@ -25,7 +24,6 @@ const companions = [
     subject: 'History',
     topic: 'World War II',
     duration: 30,
-    color: '#FFECC8',
   },
 ];
 
@@ -36,7 +34,6 @@ const recentCompanions = [
     subject: 'Math',
     topic: 'Algebra',
     duration: 30,
-    color: '#FFDA6E',
   },
   {
     id: '2',
@@ -44,7 +41,6 @@ const recentCompanions = [
     subject: 'Science',
     topic: 'Physics',
     duration: 30,
-    color: '#BDE7FF',
   },
   {
     id: '3',
@@ -52,7 +48,6 @@ const recentCompanions = [
     subject: 'History',
     topic: 'World War II',
     duration: 30,
-    color: '#FFECC8',
   },
   {
     id: '4',
@@ -60,7 +55,6 @@ const recentCompanions = [
     subject: 'Coding',
     topic: 'Intro to If-Else Statements',
     duration: 30,
-    color: '#FFC8E4',
   },
   {
     id: '5',
@@ -68,7 +62,6 @@ const recentCompanions = [
     subject: 'History',
     topic: 'World War II',
     duration: 30,
-    color: '#C8FFDF',
   },
 ];
 const Page = () => {
@@ -81,10 +74,9 @@ const Page = () => {
             key={companion.id}
             id={companion.id}
             title={companion.title}
-            subject={companion.subject}
+            subject={companion.subject as Subject}
             topic={companion.topic}
             duration={companion.duration}
-            color={companion.color}
           />
         ))}
       </section>

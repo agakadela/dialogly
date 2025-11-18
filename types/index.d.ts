@@ -6,7 +6,7 @@
 // };
 
 enum Subject {
-  maths = 'maths',
+  math = 'math',
   language = 'language',
   science = 'science',
   history = 'history',
@@ -19,7 +19,7 @@ enum Subject {
 
 type Companion = {
   id: string;
-  name: string;
+  title: string;
   subject: Subject;
   topic: string;
   duration: number;
@@ -33,7 +33,7 @@ type Companion = {
 };
 
 interface CreateCompanion {
-  name: string;
+  title: string;
   subject: string;
   topic: string;
   voice: string;

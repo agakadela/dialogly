@@ -25,7 +25,7 @@ import { createCompanion } from '@/lib/actions/companion.actions';
 import { redirect } from 'next/navigation';
 
 const formSchema = z.object({
-  name: z.string().min(1, { message: 'Name is required' }),
+  title: z.string().min(1, { message: 'Title is required' }),
   subject: z.string().min(1, { message: 'Subject is required' }),
   topic: z.string().min(1, { message: 'Topic is required' }),
   voice: z.string().min(1, { message: 'Voice is required' }),
@@ -37,7 +37,7 @@ export default function CompanionForm() {
   const form = useForm<CreateCompanion>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
+      title: '',
       subject: '',
       topic: '',
       voice: '',
@@ -61,10 +61,10 @@ export default function CompanionForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
         <FormField
           control={form.control}
-          name='name'
+          name='title'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Companion Name</FormLabel>
+              <FormLabel>Companion Title</FormLabel>
               <FormControl>
                 <Input
                   {...field}

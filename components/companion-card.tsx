@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from './ui/button';
+import { getSubjectColor } from '@/lib/utils';
 
 interface CompanionCardProps {
   id: string;
   title: string;
-  subject: string;
+  subject: Subject;
   topic: string;
   duration: number;
-  color: string;
 }
 
 export default function CompanionCard({
@@ -17,10 +17,12 @@ export default function CompanionCard({
   subject,
   topic,
   duration,
-  color,
 }: CompanionCardProps) {
   return (
-    <article className='companion-card' style={{ backgroundColor: color }}>
+    <article
+      className='companion-card'
+      style={{ backgroundColor: getSubjectColor(subject) }}
+    >
       <div className='flex justify-between items-center'>
         <div className='subject-badge'>{subject}</div>
         <Button className='companion-bookmark p-0 rounded-full'>
