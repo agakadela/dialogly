@@ -42,7 +42,7 @@ export default function CompanionCard({
       </div>
       <Link href={`/companions/${id}`}>
         <Button className='btn-primary w-full justify-center cursor-pointer'>
-          View Companion
+          Launch Lesson
         </Button>
       </Link>
     </article>

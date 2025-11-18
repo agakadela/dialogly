@@ -55,3 +55,35 @@ export async function getAllCompanions(
 
   return companions as Companion[];
 }
+
+export async function getCompanion(id: string | undefined): Promise<Companion> {
+  if (!id) {
+    throw new Error('Companion ID is required');
+  }
+
+  const uuidRegex =
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  if (!uuidRegex.test(id)) {
+    throw new Error('Invalid companion ID format. Please use a valid UUID.');
+  }
+
+  const supabase = createSupabaseClient();
+  const { data: companion, error } = await supabase
+    .from('companions')
+    .select()
+    .eq('id', id)
+    .single();
+
+  if (error) {
+    if (error.code === 'PGRST116') {
+      throw new Error('Companion not found');
+    }
+    throw new Error(error.message || 'Failed to get companion');
+  }
+
+  if (!companion) {
+    throw new Error('Companion not found');
+  }
+
+  return companion as Companion;
+}
