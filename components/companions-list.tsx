@@ -37,10 +37,10 @@ export default function CompanionsList({
               </TableHeader>
               <TableBody>
                 {companions?.map(
-                  ({ $id, title, subject, topic, duration, color }) => (
-                    <TableRow key={$id || title}>
+                  ({ id, title, subject, topic, duration, color }) => (
+                    <TableRow key={id || title}>
                       <TableCell>
-                        <Link href={`/companions/${$id}`}>
+                        <Link href={`/companions/${id}`}>
                           <div className='flex items-center gap-2'>
                             <div
                               className='size-[72px] flex items-center justify-center rounded-lg max-md:hidden'
