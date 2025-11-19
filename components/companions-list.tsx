@@ -36,67 +36,69 @@ export default function CompanionsList({
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {companions?.map(({ id, title, subject, topic, duration }) => (
-                  <TableRow key={id || title}>
-                    <TableCell>
-                      <Link href={`/companions/${id}`}>
-                        <div className='flex items-center gap-2'>
-                          <div
-                            className='size-[72px] flex items-center justify-center rounded-lg max-md:hidden'
-                            style={{
-                              backgroundColor: getSubjectColor(subject),
-                            }}
-                          >
-                            <Image
-                              src={`/icons/${subject}.svg`}
-                              alt={subject}
-                              width={36}
-                              height={36}
-                            />
+                {companions?.map(
+                  ({ id, title, subject, topic, duration }, index) => (
+                    <TableRow key={index}>
+                      <TableCell>
+                        <Link href={`/companions/${id}`}>
+                          <div className='flex items-center gap-2'>
+                            <div
+                              className='size-[72px] flex items-center justify-center rounded-lg max-md:hidden'
+                              style={{
+                                backgroundColor: getSubjectColor(subject),
+                              }}
+                            >
+                              <Image
+                                src={`/icons/${subject}.svg`}
+                                alt={subject}
+                                width={36}
+                                height={36}
+                              />
+                            </div>
+                            <div className='flex flex-col gap-2'>
+                              <p className='font-bold text-xl'>{title}</p>
+                              <p>{topic}</p>
+                            </div>
                           </div>
-                          <div className='flex flex-col gap-2'>
-                            <p className='font-bold text-xl'>{title}</p>
-                            <p>{topic}</p>
-                          </div>
+                        </Link>
+                      </TableCell>
+                      <TableCell>
+                        <div className='subject-badge w-fit max-md:hidden'>
+                          {subject}
                         </div>
-                      </Link>
-                    </TableCell>
-                    <TableCell>
-                      <div className='subject-badge w-fit max-md:hidden'>
-                        {subject}
-                      </div>
-                      <div
-                        className='flex items-center justify-center rounded-lg w-fit p-2 md:hidden'
-                        style={{
-                          backgroundColor: getSubjectColor(subject),
-                        }}
-                      >
-                        <Image
-                          src={`/icons/${subject}.svg`}
-                          alt={subject}
-                          width={20}
-                          height={20}
-                        />
-                      </div>
-                    </TableCell>
-                    <TableCell className='text-right'>
-                      <div className='flex items-center gap-2 w-full justify-end'>
-                        <Image
-                          src='/icons/clock.svg'
-                          alt='clock'
-                          width={13.5}
-                          height={13.5}
-                        />
-                        <p className='text-lg font-bold'>
-                          {duration}{' '}
-                          <span className='text-sm'>
-                            {duration === 1 ? 'min' : 'mins'}
-                          </span>
-                        </p>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))}
+                        <div
+                          className='flex items-center justify-center rounded-lg w-fit p-2 md:hidden'
+                          style={{
+                            backgroundColor: getSubjectColor(subject),
+                          }}
+                        >
+                          <Image
+                            src={`/icons/${subject}.svg`}
+                            alt={subject}
+                            width={20}
+                            height={20}
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell className='text-right'>
+                        <div className='flex items-center gap-2 w-full justify-end'>
+                          <Image
+                            src='/icons/clock.svg'
+                            alt='clock'
+                            width={13.5}
+                            height={13.5}
+                          />
+                          <p className='text-lg font-bold'>
+                            {duration}{' '}
+                            <span className='text-sm'>
+                              {duration === 1 ? 'min' : 'mins'}
+                            </span>
+                          </p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  )
+                )}
               </TableBody>
             </Table>
           </article>

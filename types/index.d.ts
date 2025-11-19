@@ -1,10 +1,3 @@
-// type User = {
-//   name: string;
-//   email: string;
-//   image?: string;
-//   accountId: string;
-// };
-
 enum Subject {
   math = 'math',
   language = 'language',
@@ -29,7 +22,6 @@ type Companion = {
   created_at?: string;
   bookmarked?: boolean;
   color?: string;
-  title?: string;
 };
 
 interface CreateCompanion {

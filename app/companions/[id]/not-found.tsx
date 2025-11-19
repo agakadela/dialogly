@@ -7,7 +7,8 @@ export default function NotFound() {
       <div className='text-center space-y-4'>
         <h1 className='text-4xl font-bold'>Companion Not Found</h1>
         <p className='text-lg text-gray-600'>
-          The companion you're looking for doesn't exist or has been removed.
+          The companion you&apos;re looking for doesn&apos;t exist or has been
+          removed.
         </p>
       </div>
       <Link href='/companions'>
@@ -16,4 +17,3 @@ export default function NotFound() {
     </main>
   );
 }
-
